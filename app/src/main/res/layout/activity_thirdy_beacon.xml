@@ -9,33 +9,38 @@
     android:gravity="center"
     tools:context="br.com.intbeacon.intbeacon.ThirdyBeaconActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_add_alert_black_24dp"
+        android:layout_marginBottom="10dp"
+    />
+
     <TextView
         android:id="@+id/thirdTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Terceiro Beacon"
+        android:text="Você chegou!!!"
         android:textColor="@color/colorPrimary"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:theme="@style/AppTheme"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="30dp" />
+    />
 
     <TextView
         android:id="@+id/thirdFinishTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Você chegou!"
+        android:text="Sala 502b"
         android:textColor="@color/colorAccent"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         android:theme="@style/AppTheme"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="30dp"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="86dp" />
+    />
 
     <ImageView
         android:id="@+id/thirdImageView"

@@ -9,13 +9,20 @@
     android:gravity="center"
     tools:context="br.com.intbeacon.intbeacon.FirstBeaconActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_add_alert_black_24dp"
+        android:layout_marginBottom="15dp"
+    />
+
     <TextView
         android:id="@+id/firstTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Primeiro Beacon"
+        android:text="Siga em Frente por 10 segundos."
         android:textColor="@color/colorPrimary"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:theme="@style/AppTheme"
