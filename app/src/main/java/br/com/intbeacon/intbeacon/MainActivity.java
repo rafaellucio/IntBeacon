@@ -3,11 +3,13 @@ package br.com.intbeacon.intbeacon;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.RemoteException;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -34,8 +36,28 @@ public class MainActivity<T> extends FragmentActivity implements BeaconConsumer,
     private static final String UUID_BEACON_03 = "0x699ebc80e1f311e39a0f";
 
 
-    long time = 3000;
+    private static final long TIMEOUT = 10 * 1000;
     Class<T> clazz;
+
+    Handler handler = new Handler();
+
+    Runnable runnableFirstBeacon = new Runnable() {
+        public void run() {
+            dispatchFirstBeacon();
+        }
+    };
+
+    Runnable runnableSecondBeacon = new Runnable() {
+        public void run() {
+            dispatchSecondBeacon();
+        }
+    };
+
+    Runnable runnableThirdBeacon = new Runnable() {
+        public void run() {
+            dispatchThirdBeacon();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +70,8 @@ public class MainActivity<T> extends FragmentActivity implements BeaconConsumer,
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        handler.postDelayed(runnableFirstBeacon, TIMEOUT);
     }
 
     @Override
@@ -133,5 +157,27 @@ public class MainActivity<T> extends FragmentActivity implements BeaconConsumer,
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(id, builder.build());
+    }
+
+    public void dispatchBeaconNotification() {
+        Toast.makeText(getBaseContext(), "test", Toast.LENGTH_SHORT).show();
+        handler.postDelayed(runnableFirstBeacon, TIMEOUT);
+    }
+
+    public void dispatchFirstBeacon() {
+        clazz = (Class<T>) FirstBeaconActivity.class;
+        notification(clazz, 001, "Siga em Frente por 10 segundos");
+        handler.postDelayed(runnableSecondBeacon, TIMEOUT);
+    }
+
+    public void dispatchSecondBeacon() {
+        clazz = (Class<T>) SecondBeaconActivity.class;
+        notification(clazz, 002, "Vire a direita e siga em frente por 10 segundos");
+        handler.postDelayed(runnableThirdBeacon, TIMEOUT);
+    }
+
+    public void dispatchThirdBeacon() {
+        clazz = (Class<T>) ThirdyBeaconActivity.class;
+        notification(clazz, 003, "Você chegou a sala 502b");
     }
 }
