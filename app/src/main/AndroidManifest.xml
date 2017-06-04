@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:allowBackup="true"
@@ -18,6 +19,11 @@
         android:roundIcon="@drawable/ane_beacon_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDucvfECjkq8xhcxGfdEp-NSeo7cM8NHNw"/>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +32,7 @@
         </activity>
         <activity android:name=".FirstBeaconActivity" />
         <activity android:name=".SecondBeaconActivity" />
-        <activity android:name=".ThirdyBeaconActivity"></activity>
+        <activity android:name=".ThirdyBeaconActivity" />
     </application>
 
 </manifest>

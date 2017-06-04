@@ -32,7 +32,7 @@
         android:id="@+id/thirdFinishTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sala 502b"
+        android:text="Sala 505B"
         android:textColor="@color/colorAccent"
         android:textSize="25dp"
         android:textStyle="bold"
